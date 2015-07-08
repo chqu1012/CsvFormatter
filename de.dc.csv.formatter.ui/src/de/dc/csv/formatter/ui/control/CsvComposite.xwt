@@ -1,0 +1,47 @@
+<Composite xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt" x:Class="de.dc.csv.formatter.ui.control.CsvComposite" xmlns:p1="clr-namespace:org.eclipse.jface.viewers" xmlns:p2="clr-namespace:de.dc.csv.formatter.ui.provider">
+	<Composite.layout>
+		<GridLayout numColumns="3"/>
+	</Composite.layout>
+	<Label text="Csv Path:">
+		<Label.layoutData>
+			<GridData horizontalAlignment="RIGHT"/>
+		</Label.layoutData>
+	</Label>
+	<Text background="COLOR_INFO_BACKGROUND" x:Style="BORDER">
+		<Text.layoutData>
+			<GridData grabExcessHorizontalSpace="true" horizontalAlignment="FILL"/>
+		</Text.layoutData>
+	</Text>
+	<Button text="..." x:Name="openCsvPathButton" SelectionEvent="onOpenCsvPathButtonSelection">
+		<Button.layoutData>
+			<GridData horizontalAlignment="FILL"/>
+		</Button.layoutData>
+	</Button>
+	<Label text="Separator:">
+		<Label.layoutData>
+			<GridData horizontalAlignment="RIGHT"/>
+		</Label.layoutData>
+	</Label>
+	<Text background="COLOR_INFO_BACKGROUND" text="," x:Name="separatorText" x:Style="BORDER">
+		<Text.layoutData>
+			<GridData grabExcessHorizontalSpace="true" widthHint="50"/>
+		</Text.layoutData>
+	</Text>
+	<Button text="Adapt" x:Name="adaptButton" x:Style="FLAT" SelectionEvent="onAdaptButtonSelection"/>
+	<SashForm x:Style="SMOOTH | VERTICAL" weights="1, 2">
+		<SashForm.layoutData>
+			<GridData grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true" horizontalSpan="3" horizontalAlignment="FILL" verticalAlignment="FILL"/>
+		</SashForm.layoutData>
+		<TableViewer x:Style="BORDER | FULL_SELECTION" useHashlookup="true" x:Name="fieldsViewer">
+		<TableViewer.table headerVisible="true" linesVisible="true"/>
+		<TableViewerColumn text="Field" width="150"/>
+		<TableViewerColumn x:Name="formatColumn" text="Formatter From" width="150"/>
+		<TableViewer.contentProvider>
+			<p1:ArrayContentProvider/>
+		</TableViewer.contentProvider>
+		<TableViewerColumn x:Name="formatColumnTo" text="Formatter To" width="100"/>
+	</TableViewer>
+		<Table x:Style="BORDER | FULL_SELECTION" x:Name="expireDatesTable"/>
+	</SashForm>
+</Composite>
+<!-- Forms API -->
